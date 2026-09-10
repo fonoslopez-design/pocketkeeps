@@ -4,27 +4,26 @@
 // HERO IMAGE SLIDER
 // ============================================================
 
+const heroImage = document.getElementById("heroImage");
+
 const heroImages = [
-  "images/hero1.jpg",
-  "images/hero2.jpg"
+    "images/hero1.jpg",
+    "images/hero2.jpg"
 ];
 
 let heroIndex = 0;
-const heroImage = document.getElementById("heroImage");
 
-if (heroImage) {
-  setInterval(() => {
-    heroIndex = (heroIndex + 1) % heroImages.length;
+setInterval(() => {
 
-    heroImage.style.opacity = "0";
+    heroIndex++;
 
-    setTimeout(() => {
-      heroImage.src = heroImages[heroIndex];
-      heroImage.style.opacity = "1";
-    }, 400);
+    if (heroIndex >= heroImages.length) {
+        heroIndex = 0;
+    }
 
-  }, 4000);
-}
+    heroImage.src = heroImages[heroIndex];
+
+}, 4000);
 
 // ============================================================
 // AÑO AUTOMÁTICO DEL FOOTER
