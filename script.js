@@ -5,45 +5,27 @@
 // ============================================================
 
 const heroImages = [
-    "images/hero1.jpg",
-    "images/hero2.jpg",
+  "images/hero1.jpg",
+  "images/hero2.jpg",
+  "images/hero3.jpg"
 ];
 
-const heroPhoto = document.querySelector(".hero .photo");
+let heroIndex = 0;
+const heroImage = document.getElementById("heroImage");
 
-let currentImage = 0;
+if (heroImage) {
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % heroImages.length;
 
-if (heroPhoto && heroImages.length > 0) {
+    heroImage.style.opacity = "0";
 
-    // Primera imagen
-    heroPhoto.innerHTML = "";
-    heroPhoto.style.backgroundImage = `url("${heroImages[0]}")`;
+    setTimeout(() => {
+      heroImage.src = heroImages[heroIndex];
+      heroImage.style.opacity = "1";
+    }, 400);
 
-    // Cambiar imagen cada 4 segundos
-    setInterval(() => {
-
-        currentImage++;
-
-        if (currentImage >= heroImages.length) {
-            currentImage = 0;
-        }
-
-        // Desvanecer
-        heroPhoto.style.opacity = "0";
-
-        setTimeout(() => {
-
-            heroPhoto.style.backgroundImage =
-                `url("${heroImages[currentImage]}")`;
-
-            // Mostrar nueva imagen
-            heroPhoto.style.opacity = "1";
-
-        }, 400);
-
-    }, 4000);
+  }, 4000);
 }
-
 
 // ============================================================
 // AÑO AUTOMÁTICO DEL FOOTER
