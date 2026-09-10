@@ -67,13 +67,6 @@ a{
     color:var(--accent);
 }
 
-/* Logo del footer */
-.logo2 img{
-    height:32px;
-    width:auto;
-    display:block;
-}
-
 /* =========================
    NAVIGATION
    ========================= */
@@ -345,6 +338,12 @@ h2{
 /* =========================
    FOOTER
    ========================= */
+
+.logo img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
 
 .footer{
     background:#111;
