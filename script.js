@@ -1,25 +1,59 @@
-```javascript
 // ============================================================
 // POCKETKEEPS
 // HERO IMAGE SLIDER
 // ============================================================
 
-const heroTrack = document.querySelector(".hero-track");
+const heroSlides = document.querySelectorAll(".hero-slide");
 
 let heroIndex = 0;
 
-if (heroTrack) {
+if (heroSlides.length > 1) {
 
     setInterval(() => {
 
-        heroIndex++;
+        const currentSlide = heroSlides[heroIndex];
 
-        if (heroIndex >= 2) {
-            heroIndex = 0;
+        let nextIndex = heroIndex + 1;
+
+        if (nextIndex >= heroSlides.length) {
+            nextIndex = 0;
         }
 
-        heroTrack.style.transform =
-            `translateX(-${heroIndex * 50}%)`;
+        const nextSlide = heroSlides[nextIndex];
+
+        // Preparar la siguiente imagen a la derecha
+        nextSlide.classList.remove("exit");
+        nextSlide.classList.remove("active");
+
+        // Forzar que esté a la derecha antes de iniciar
+        nextSlide.style.transform = "translateX(100%)";
+
+        // Pequeño retraso para permitir el movimiento
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                // Imagen actual sale hacia la izquierda
+                currentSlide.classList.remove("active");
+                currentSlide.classList.add("exit");
+
+                // Nueva imagen entra desde la derecha
+                nextSlide.style.transform = "translateX(0)";
+                nextSlide.classList.add("active");
+
+            });
+
+        });
+
+        // Preparar la imagen anterior después de la animación
+        setTimeout(() => {
+
+            currentSlide.classList.remove("exit");
+            currentSlide.style.transform = "translateX(100%)";
+
+        }, 1000);
+
+        heroIndex = nextIndex;
 
     }, 4000);
 
@@ -53,7 +87,6 @@ if (topButton) {
         );
 
     });
-
 
     topButton.addEventListener("click", () => {
 
@@ -146,4 +179,3 @@ document.querySelector("#contactForm")?.addEventListener("submit", event => {
     event.target.reset();
 
 });
-```
