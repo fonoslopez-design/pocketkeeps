@@ -4,26 +4,27 @@
 // HERO IMAGE SLIDER
 // ============================================================
 
-const heroImage = document.getElementById("heroImage");
-
-const heroImages = [
-    "images/hero1.jpg",
-    "images/hero2.jpg"
-];
+const heroTrack = document.querySelector(".hero-track");
 
 let heroIndex = 0;
 
-setInterval(() => {
+if (heroTrack) {
 
-    heroIndex++;
+    setInterval(() => {
 
-    if (heroIndex >= heroImages.length) {
-        heroIndex = 0;
-    }
+        heroIndex++;
 
-    heroImage.src = heroImages[heroIndex];
+        if (heroIndex >= 2) {
+            heroIndex = 0;
+        }
 
-}, 4000);
+        heroTrack.style.transform =
+            `translateX(-${heroIndex * 50}%)`;
+
+    }, 4000);
+
+}
+
 
 // ============================================================
 // AÑO AUTOMÁTICO DEL FOOTER
@@ -44,15 +45,23 @@ const topButton = document.querySelector(".top");
 
 if (topButton) {
 
-    addEventListener("scroll", () => {
-        topButton.classList.toggle("show", scrollY > 500);
+    window.addEventListener("scroll", () => {
+
+        topButton.classList.toggle(
+            "show",
+            window.scrollY > 500
+        );
+
     });
 
+
     topButton.addEventListener("click", () => {
+
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
     });
 
 }
@@ -80,8 +89,11 @@ function show(message) {
     clearTimeout(window.toastTimer);
 
     window.toastTimer = setTimeout(() => {
+
         toast.classList.remove("show");
+
     }, 3500);
+
 }
 
 
@@ -110,7 +122,9 @@ document.querySelector("#quoteForm")?.addEventListener("submit", event => {
 
     event.preventDefault();
 
-    show("Quote request prepared. We'll connect the form to email next.");
+    show(
+        "Quote request prepared. We'll connect the form to email next."
+    );
 
     event.target.reset();
 
@@ -125,7 +139,9 @@ document.querySelector("#contactForm")?.addEventListener("submit", event => {
 
     event.preventDefault();
 
-    show("Message prepared. We'll connect the contact form to email next.");
+    show(
+        "Message prepared. We'll connect the contact form to email next."
+    );
 
     event.target.reset();
 
