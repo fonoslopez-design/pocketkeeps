@@ -195,18 +195,39 @@ h2{
 ========================= */
 
 .hero-slider{
-    min-height:300px;
+    position:relative;
+    min-height:360px;
+    padding:0;
+    border:0;
+    overflow:hidden;
     display:block;
 }
 
-.hero-track{
-    min-height:300px;
-    width:200%;
+.hero-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    transform:translateX(100%);
+    transition:transform 1s ease-in-out;
 }
 
-.hero-track img{
-    min-height:300px;
-    flex:0 0 50%;
+.hero-slide.active{
+    transform:translateX(0);
+}
+
+.hero-slide.exit{
+    transform:translateX(-100%);
+}
+
+.hero-slide img{
+    width:100%;
+    height:100%;
+    min-height:360px;
+    object-fit:cover;
+    display:block;
+    border-radius:28px;
 }
 
 /* =========================
