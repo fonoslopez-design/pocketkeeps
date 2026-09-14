@@ -7,57 +7,94 @@ const heroSlides = document.querySelectorAll(".hero-slide");
 
 let heroIndex = 0;
 
+
 if (heroSlides.length > 1) {
+
 
     setInterval(() => {
 
+
         const currentSlide = heroSlides[heroIndex];
+
 
         let nextIndex = heroIndex + 1;
 
+
         if (nextIndex >= heroSlides.length) {
+
             nextIndex = 0;
+
         }
+
 
         const nextSlide = heroSlides[nextIndex];
 
-        // Preparar la siguiente imagen a la derecha
-        nextSlide.classList.remove("exit");
-        nextSlide.classList.remove("active");
 
-        // Forzar que esté a la derecha antes de iniciar
+        // ====================================================
+        // PREPARAR LA NUEVA IMAGEN
+        // ====================================================
+
+        nextSlide.style.transition = "none";
+
         nextSlide.style.transform = "translateX(100%)";
 
-        // Pequeño retraso para permitir el movimiento
-        requestAnimationFrame(() => {
 
-            requestAnimationFrame(() => {
+        // Forzar al navegador a aplicar la posición
+        nextSlide.offsetHeight;
 
-                // Imagen actual sale hacia la izquierda
-                currentSlide.classList.remove("active");
-                currentSlide.classList.add("exit");
 
-                // Nueva imagen entra desde la derecha
-                nextSlide.style.transform = "translateX(0)";
-                nextSlide.classList.add("active");
+        // ====================================================
+        // ACTIVAR ANIMACIÓN
+        // ====================================================
 
-            });
+        nextSlide.style.transition =
+            "transform 1s ease-in-out";
 
-        });
 
-        // Preparar la imagen anterior después de la animación
+        currentSlide.style.transition =
+            "transform 1s ease-in-out";
+
+
+        // La imagen actual sale hacia la izquierda
+
+        currentSlide.style.transform =
+            "translateX(-100%)";
+
+
+        // La nueva imagen entra desde la derecha
+
+        nextSlide.style.transform =
+            "translateX(0)";
+
+
+        // ====================================================
+        // DESPUÉS DE LA ANIMACIÓN
+        // ====================================================
+
         setTimeout(() => {
 
-            currentSlide.classList.remove("exit");
-            currentSlide.style.transform = "translateX(100%)";
+
+            currentSlide.classList.remove("active");
+
+            currentSlide.style.transition = "none";
+
+            currentSlide.style.transform =
+                "translateX(100%)";
+
+
+            nextSlide.classList.add("active");
+
 
         }, 1000);
 
+
         heroIndex = nextIndex;
+
 
     }, 4000);
 
 }
+
 
 
 // ============================================================
@@ -66,45 +103,64 @@ if (heroSlides.length > 1) {
 
 const year = document.querySelector(".year");
 
+
 if (year) {
-    year.textContent = new Date().getFullYear();
+
+    year.textContent =
+        new Date().getFullYear();
+
 }
+
 
 
 // ============================================================
 // BOTÓN BACK TO TOP
 // ============================================================
 
-const topButton = document.querySelector(".top");
+const topButton =
+    document.querySelector(".top");
+
 
 if (topButton) {
 
+
     window.addEventListener("scroll", () => {
+
 
         topButton.classList.toggle(
             "show",
             window.scrollY > 500
         );
 
+
     });
+
 
     topButton.addEventListener("click", () => {
 
+
         window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+
+            top:0,
+
+            behavior:"smooth"
+
         });
+
 
     });
 
 }
 
 
+
 // ============================================================
 // TOAST
 // ============================================================
 
-const toast = document.querySelector(".toast");
+const toast =
+    document.querySelector(".toast");
+
 
 
 // ============================================================
@@ -113,69 +169,112 @@ const toast = document.querySelector(".toast");
 
 function show(message) {
 
+
     if (!toast) return;
 
-    toast.textContent = message;
+
+    toast.textContent =
+        message;
+
 
     toast.classList.add("show");
 
-    clearTimeout(window.toastTimer);
 
-    window.toastTimer = setTimeout(() => {
+    clearTimeout(
+        window.toastTimer
+    );
 
-        toast.classList.remove("show");
 
-    }, 3500);
+    window.toastTimer =
+        setTimeout(() => {
+
+
+            toast.classList.remove(
+                "show"
+            );
+
+
+        }, 3500);
 
 }
+
 
 
 // ============================================================
 // BOTONES ORDER
 // ============================================================
 
-document.querySelectorAll(".order").forEach(button => {
+document
+    .querySelectorAll(".order")
+    .forEach(button => {
 
-    button.addEventListener("click", () => {
 
-        show(
-            `"${button.dataset.item}" selected. We'll connect ordering and PayPal next.`
+        button.addEventListener(
+            "click",
+            () => {
+
+
+                show(
+                    `"${button.dataset.item}" selected. We'll connect ordering and PayPal next.`
+                );
+
+
+            }
         );
+
 
     });
 
-});
 
 
 // ============================================================
 // FORMULARIO DE COTIZACIÓN
 // ============================================================
 
-document.querySelector("#quoteForm")?.addEventListener("submit", event => {
+document
+    .querySelector("#quoteForm")
+    ?.addEventListener(
+        "submit",
+        event => {
 
-    event.preventDefault();
 
-    show(
-        "Quote request prepared. We'll connect the form to email next."
+            event.preventDefault();
+
+
+            show(
+                "Quote request prepared. We'll connect the form to email next."
+            );
+
+
+            event.target.reset();
+
+
+        }
     );
 
-    event.target.reset();
-
-});
 
 
 // ============================================================
 // FORMULARIO DE CONTACTO
 // ============================================================
 
-document.querySelector("#contactForm")?.addEventListener("submit", event => {
+document
+    .querySelector("#contactForm")
+    ?.addEventListener(
+        "submit",
+        event => {
 
-    event.preventDefault();
 
-    show(
-        "Message prepared. We'll connect the contact form to email next."
+            event.preventDefault();
+
+
+            show(
+                "Message prepared. We'll connect the contact form to email next."
+            );
+
+
+            event.target.reset();
+
+
+        }
     );
-
-    event.target.reset();
-
-});
