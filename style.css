@@ -195,32 +195,19 @@ h2{
 ========================= */
 
 .hero-slider{
-    position:relative;
-    padding:0;
-    border:0;
-    overflow:hidden;
-    min-height:360px;
+    min-height:300px;
+    display:block;
 }
 
 .hero-track{
-    display:flex;
+    min-height:300px;
     width:200%;
-    height:100%;
-    min-height:360px;
-    transform:translateX(0);
-    transition:transform 1s ease-in-out;
 }
 
 .hero-track img{
-    width:50%;
-    height:100%;
-    min-height:360px;
-    flex-shrink:0;
-    object-fit:cover;
-    display:block;
-    border-radius:28px;
+    min-height:300px;
+    flex:0 0 50%;
 }
-
 
 /* =========================
    CARDS
