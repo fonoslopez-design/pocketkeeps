@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
     content="PocketKeeps in-store order"
   >
 
-  <title>In-Store Order | PocketKeeps</title>
+  <title>Pedido en tienda | PocketKeeps</title>
 
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -47,13 +47,13 @@
 
     <div class="page-title">
 
-      <p class="eyebrow">IN-STORE ORDER</p>
+      <p class="eyebrow">PEDIDO EN TIENDA</p>
 
-      <h1>Reserve Your Item</h1>
+      <h1>Aparta tu artículo</h1>
 
       <p>
-        Fill out this short form and we'll have your order ready
-        for payment and pickup in store.
+        Llena este formulario corto y tendremos tu pedido listo
+        para pagar y recoger en tienda.
       </p>
 
     </div>
@@ -63,15 +63,15 @@
 
     <section class="card">
 
-      <h2>Your Item</h2>
+      <h2>Tu artículo</h2>
 
       <p>
-        <strong>Product:</strong>
-        <span id="productName">Loading...</span>
+        <strong>Producto:</strong>
+        <span id="productName">Cargando...</span>
       </p>
 
       <p>
-        <strong>Price:</strong>
+        <strong>Precio:</strong>
         $<span id="productPrice">0.00</span>
       </p>
 
@@ -82,7 +82,7 @@
 
     <section class="card">
 
-      <h2>Your Information</h2>
+      <h2>Tus datos</h2>
 
       <form
         action="https://formsubmit.co/edgarlopezcoapio@gmail.com"
@@ -139,14 +139,14 @@
         <!-- NAME -->
 
         <label for="name">
-          Full Name *
+          Nombre completo *
         </label>
 
         <input
           type="text"
           id="name"
           name="Full Name"
-          placeholder="Your name"
+          placeholder="Tu nombre"
           required
         >
 
@@ -154,14 +154,14 @@
         <!-- PHONE -->
 
         <label for="phone">
-          Phone Number *
+          Teléfono *
         </label>
 
         <input
           type="tel"
           id="phone"
           name="Phone"
-          placeholder="Your phone number"
+          placeholder="Tu número de teléfono"
           required
         >
 
@@ -169,24 +169,24 @@
         <!-- EMAIL -->
 
         <label for="email">
-          Email
-          <span>(optional)</span>
+          Correo electrónico
+          <span>(opcional)</span>
         </label>
 
         <input
           type="email"
           id="email"
           name="Email"
-          placeholder="Your email"
+          placeholder="Tu correo electrónico"
         >
 
 
         <!-- PAYMENT INFO -->
 
         <p>
-          <strong>Payment at the store</strong><br>
-          You can pay directly in store with cash or card
-          when you pick up your item.
+          <strong>Pago en tienda</strong><br>
+          Puedes pagar directo en tienda con efectivo o tarjeta
+          cuando recojas tu artículo.
         </p>
 
 
@@ -196,7 +196,7 @@
           type="submit"
           class="btn"
         >
-          Reserve My Order
+          Apartar mi pedido
         </button>
 
       </form>
@@ -215,7 +215,7 @@
     </a>
 
     <p>
-      Little things made to be kept.
+      Cosas pequeñas hechas para guardarse.
     </p>
 
     <p>
@@ -229,7 +229,7 @@
 
   <button
     class="top"
-    aria-label="Back to top"
+    aria-label="Volver arriba"
   >
     ↑
   </button>
@@ -249,27 +249,35 @@
 
     const products = {
       "Little Bear": {
+        display: "Osito",
         price: "24.99"
       },
       "Happy Frog": {
+        display: "Ranita",
         price: "22.99"
       },
       "Cozy Mushroom": {
+        display: "Honguito",
         price: "21.99"
       },
       "Mini Cat": {
+        display: "Gatito",
         price: "23.99"
       },
       "Amigurumi Keychain": {
+        display: "Llavero amigurumi",
         price: "9.99"
       },
       "Pocket Nail Clippers": {
+        display: "Cortaúñas de bolsillo",
         price: "7.99"
       },
       "Travel Toothpaste": {
+        display: "Pasta dental de viaje",
         price: "4.99"
       },
       "Travel Toothbrush": {
+        display: "Cepillo de viaje",
         price: "5.99"
       }
     };
@@ -294,7 +302,7 @@
       // Visible information
 
       document.getElementById("productName").textContent =
-        product;
+        products[product].display || product;
 
       document.getElementById("productPrice").textContent =
         price;
@@ -303,7 +311,7 @@
       // Hidden form information
 
       document.getElementById("productInput").value =
-        product;
+        products[product].display || product;
 
       document.getElementById("priceInput").value =
         "$" + price;

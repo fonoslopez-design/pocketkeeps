@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -15,7 +15,7 @@
     content="Complete your PocketKeeps order and shipping information."
   >
 
-  <title>Checkout | PocketKeeps</title>
+  <title>Pagar en línea | PocketKeeps</title>
 
   <link rel="stylesheet" href="../style.css">
 
@@ -72,15 +72,15 @@
     <div class="page-title">
 
       <p class="eyebrow">
-        CHECKOUT
+        PAGO EN LÍNEA
       </p>
 
       <h1>
-        Complete Your Order
+        Completa tu pedido
       </h1>
 
       <p>
-        Tell us where you'd like your PocketKeeps item delivered.
+        Dinos a dónde quieres que te entreguemos tu artículo PocketKeeps.
       </p>
 
     </div>
@@ -94,15 +94,15 @@
     <section class="card checkout-summary">
 
       <p class="eyebrow">
-        YOUR ITEM
+        TU ARTÍCULO
       </p>
 
       <h2 id="productName">
-        Loading...
+        Cargando...
       </h2>
 
       <p>
-        Price:
+        Precio:
         <strong id="productPrice">
           $0.00
         </strong>
@@ -179,26 +179,26 @@
         ================================================== -->
 
         <h2>
-          Contact Information
+          Datos de contacto
         </h2>
 
 
         <label for="fullName">
-          Full Name *
+          Nombre completo *
         </label>
 
         <input
           type="text"
           id="fullName"
           name="Full Name"
-          placeholder="Your full name"
+          placeholder="Tu nombre completo"
           autocomplete="name"
           required
         >
 
 
         <label for="email">
-          Email *
+          Correo electrónico *
         </label>
 
         <input
@@ -212,14 +212,14 @@
 
 
         <label for="phone">
-          Phone Number *
+          Teléfono *
         </label>
 
         <input
           type="tel"
           id="phone"
           name="Phone"
-          placeholder="Your phone number"
+          placeholder="Tu número de teléfono"
           autocomplete="tel"
           required
         >
@@ -231,81 +231,81 @@
         ================================================== -->
 
         <h2>
-          Delivery Information
+          Datos de entrega
         </h2>
 
 
         <label for="address">
-          Street Address *
+          Dirección *
         </label>
 
         <input
           type="text"
           id="address"
           name="Street Address"
-          placeholder="Street and house number"
+          placeholder="Calle y número"
           autocomplete="street-address"
           required
         >
 
 
         <label for="unit">
-          Apartment / Unit
+          Departamento / Unidad
         </label>
 
         <input
           type="text"
           id="unit"
           name="Apartment or Unit"
-          placeholder="Apartment, suite, unit, etc. (optional)"
+          placeholder="Departamento, suite, unidad, etc. (opcional)"
           autocomplete="address-line2"
         >
 
 
         <label for="city">
-          City *
+          Ciudad *
         </label>
 
         <input
           type="text"
           id="city"
           name="City"
-          placeholder="City"
+          placeholder="Ciudad"
           autocomplete="address-level2"
           required
         >
 
 
         <label for="state">
-          State *
+          Estado *
         </label>
 
         <input
           type="text"
           id="state"
           name="State"
-          placeholder="State"
+          placeholder="Estado"
           autocomplete="address-level1"
           required
         >
 
 
         <label for="zip">
-          ZIP Code *
+          Código postal *
         </label>
 
         <input
           type="text"
           id="zip"
           name="ZIP Code"
-          placeholder="ZIP Code"
+          placeholder="Código postal"
           autocomplete="postal-code"
           required
         >
 
 
         <label for="country">
-          Country *
+          País *
         </label>
 
         <input
@@ -324,12 +324,12 @@
         ================================================== -->
 
         <h2>
-          Order Details
+          Detalles del pedido
         </h2>
 
 
         <label for="quantity">
-          Quantity *
+          Cantidad *
         </label>
 
         <input
@@ -344,14 +344,14 @@
 
 
         <label for="notes">
-          Order Notes
+          Notas del pedido
         </label>
 
         <textarea
           id="notes"
           name="Order Notes"
           rows="4"
-          placeholder="Anything you'd like us to know about your order?"
+          placeholder="¿Algo que quieras contarnos sobre tu pedido?"
         ></textarea>
 
 
@@ -363,12 +363,12 @@
         <div class="checkout-note">
 
           <strong>
-            Payment
+            Pago
           </strong>
 
           <p>
-            After submitting your delivery information,
-            you will continue to PayPal to complete your payment.
+            Después de enviar tus datos de entrega,
+            seguirás a PayPal para completar tu pago.
           </p>
 
         </div>
@@ -383,7 +383,7 @@
           type="submit"
           class="btn"
         >
-          Continue to PayPal
+          Continuar a PayPal
         </button>
 
 
@@ -407,7 +407,7 @@
     </a>
 
     <p>
-      Little things made to be kept.
+      Cosas pequeñas hechas para guardarse.
     </p>
 
     <p>
@@ -422,7 +422,7 @@
 
   <button
     class="top"
-    aria-label="Back to top"
+    aria-label="Volver arriba"
   >
     ↑
   </button>
@@ -435,7 +435,7 @@
 
 
   <!-- =========================================================
-       CHECKOUT JAVASCRIPT
+       PAGO EN LÍNEA JAVASCRIPT
   ========================================================== -->
 
   <script>
@@ -448,34 +448,42 @@
 
     const products = {
       "Little Bear": {
+        display: "Osito",
         price: "24.99",
         paypal: "https://www.paypal.com/ncp/payment/DQX2BZJU6RF8U"
       },
       "Happy Frog": {
+        display: "Ranita",
         price: "22.99",
         paypal: "https://www.paypal.com/ncp/payment/BMP38QATV9RP4"
       },
       "Cozy Mushroom": {
+        display: "Honguito",
         price: "21.99",
         paypal: "https://www.paypal.com/ncp/payment/HKQ9ELH9B6YLC"
       },
       "Mini Cat": {
+        display: "Gatito",
         price: "23.99",
         paypal: "https://www.paypal.com/ncp/payment/C7PTZ36D3AY3N"
       },
       "Amigurumi Keychain": {
+        display: "Llavero amigurumi",
         price: "9.99",
         paypal: "https://www.paypal.com/ncp/payment/D9JC87LWKPF7U"
       },
       "Pocket Nail Clippers": {
+        display: "Cortaúñas de bolsillo",
         price: "7.99",
         paypal: "https://www.paypal.com/ncp/payment/4ZFMEW7M5NE74"
       },
       "Travel Toothpaste": {
+        display: "Pasta dental de viaje",
         price: "4.99",
         paypal: "https://www.paypal.com/ncp/payment/VN6AAEZATF2PG"
       },
       "Travel Toothbrush": {
+        display: "Cepillo de viaje",
         price: "5.99",
         paypal: "https://www.paypal.com/ncp/payment/HC3VTE93DZ726"
       }
@@ -521,7 +529,7 @@
     */
 
     document.getElementById("productName").textContent =
-      selectedProduct;
+      product.display || selectedProduct;
 
 
     /*
@@ -537,7 +545,7 @@
     */
 
     document.getElementById("productInput").value =
-      selectedProduct;
+      product.display || selectedProduct;
 
 
     document.getElementById("priceInput").value =
