@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="en">
 
@@ -33,7 +32,7 @@
   <header class="header">
 
     <a class="logo" href="index.html">
-      Pocket<span>Keeps</span>
+      <img src="images/logo1.png" alt="PocketKeeps">
     </a>
 
     <nav>
@@ -403,8 +402,8 @@
 
   <footer class="footer">
 
-    <a class="logo" href="index.html">
-      Pocket<span>Keeps</span>
+    <a class="logo logo2" href="index.html">
+      <img src="images/logo2.png" alt="PocketKeeps">
     </a>
 
     <p>
@@ -448,27 +447,38 @@
     */
 
     const products = {
-
       "Little Bear": {
         price: "24.99",
         paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
       },
-
       "Happy Frog": {
         price: "22.99",
         paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
       },
-
       "Cozy Mushroom": {
         price: "21.99",
         paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
       },
-
       "Mini Cat": {
         price: "23.99",
         paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+      },
+      "Amigurumi Keychain": {
+        price: "9.99",
+        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+      },
+      "Pocket Nail Clippers": {
+        price: "7.99",
+        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+      },
+      "Travel Toothpaste": {
+        price: "4.99",
+        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+      },
+      "Travel Toothbrush": {
+        price: "5.99",
+        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
       }
-
     };
 
 
@@ -537,10 +547,9 @@
     /*
       Set the PayPal destination.
 
-      Right now all products use the same
-      test PayPal link.
-
-      Later each product can have its own link.
+      All products use the same active PayPal payment link,
+      so the order form records the exact product and price
+      before the customer continues to PayPal.
     */
 
     document.getElementById("paypalRedirect").value =
@@ -554,4 +563,3 @@
 </body>
 
 </html>
-```

@@ -951,3 +951,9 @@ h2{
     }
 
 }
+
+/* IMAGE FIT FIX (added 2026-10-23) */
+.card .photo img{width:100%;height:260px;object-fit:cover;display:block;}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:28px;display:block;}
+.gallery .photo img{width:100%;height:260px;object-fit:cover;display:block;}
+.photo{overflow:hidden;}
