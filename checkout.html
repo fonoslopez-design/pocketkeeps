@@ -152,7 +152,7 @@
           type="hidden"
           name="_next"
           id="paypalRedirect"
-          value="https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+          value="https://www.paypal.com/ncp/payment/DQX2BZJU6RF8U"
         >
 
 
@@ -449,35 +449,35 @@
     const products = {
       "Little Bear": {
         price: "24.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/DQX2BZJU6RF8U"
       },
       "Happy Frog": {
         price: "22.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/BMP38QATV9RP4"
       },
       "Cozy Mushroom": {
         price: "21.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/HKQ9ELH9B6YLC"
       },
       "Mini Cat": {
         price: "23.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/C7PTZ36D3AY3N"
       },
       "Amigurumi Keychain": {
         price: "9.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/D9JC87LWKPF7U"
       },
       "Pocket Nail Clippers": {
         price: "7.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/4ZFMEW7M5NE74"
       },
       "Travel Toothpaste": {
         price: "4.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/VN6AAEZATF2PG"
       },
       "Travel Toothbrush": {
         price: "5.99",
-        paypal: "https://www.paypal.com/ncp/payment/TFP4FDAAZC22L"
+        paypal: "https://www.paypal.com/ncp/payment/HC3VTE93DZ726"
       }
     };
 
@@ -547,9 +547,9 @@
     /*
       Set the PayPal destination.
 
-      All products use the same active PayPal payment link,
-      so the order form records the exact product and price
-      before the customer continues to PayPal.
+      Each product now has its own PayPal payment link
+      with its exact price, so the order form records the
+      product and price before the customer pays that amount.
     */
 
     document.getElementById("paypalRedirect").value =
