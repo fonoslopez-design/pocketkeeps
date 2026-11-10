@@ -1,5 +1,5 @@
 /* PocketKeeps cart: localStorage cart, form-before-payment checkout.
-   Online buyers pay once with PayPal (single _cart payment with every
+   Online buyers pay once with electronic payment (single _cart payment with every
    line item); in-person buyers fill the same form and it posts right
    away. The order email is sent only after the online payment step is
    confirmed ("Ya pagué"), so no unpaid order email. */
@@ -93,7 +93,7 @@
     refreshCheckout();
   }
 
-  /* Checkout state: "online" (PayPal) or "person" (pay in person). The
+  /* Checkout state: "online" (electronic payment) or "person" (pay in person). The
      filled form is saved to localStorage, so a reload mid-payment does
      not lose it. */
   function loadPath() { try { var p = localStorage.getItem("pk-pay-path"); return p === "person" ? "person" : "online"; } catch (e) { return "online"; } }
@@ -135,7 +135,7 @@
     if (t) t.value = money(cartTotal(cart));
     if (f) f.value = PATH === "person"
       ? (lang() === "en" ? "In person" : "En persona")
-      : (lang() === "en" ? "Online (PayPal)" : "En línea (PayPal)");
+      : (lang() === "en" ? "Online (electronic payment)" : "En línea (pago electrónico)");
   }
 
   function thanksURL() {
@@ -143,7 +143,7 @@
     catch (e) { return "thanks.html"; }
   }
 
-  /* Single PayPal payment with the whole cart (Website Payments Standard
+  /* Single electronic payment with the whole cart (Website Payments Standard
      _cart upload). Opens in a new tab so the cart page stays open. */
   function openPayPal(cart) {
     var f = document.createElement("form");
@@ -201,7 +201,7 @@
     if (addrInput) addrInput.required = needAddr;
     if (svcNote) svcNote.style.display = hasService(cart) ? "" : "none";
     if (submitBtn) submitBtn.textContent = online ? submitBtn.getAttribute("data-online") : submitBtn.getAttribute("data-store");
-    if (stepText) stepText.textContent = (lang() === "en" ? "Pay " : "Paga ") + money(cartTotal(cart)) + (lang() === "en" ? " with PayPal" : " con PayPal");
+    if (stepText) stepText.textContent = (lang() === "en" ? "Pay " : "Paga ") + money(cartTotal(cart)) + (lang() === "en" ? " with electronic payment" : " con pago electrónico");
     fillHidden();
   }
 
@@ -235,7 +235,7 @@
       fillHidden();
       form.submit(); /* normal POST to Web3Forms -> thanks page */
     });
-    /* PayPal tab was blocked or closed: open the cart payment again. */
+    /* Electronic payment tab was blocked or closed: open the cart payment again. */
     var payAgain = document.getElementById("cart-step-pay");
     if (payAgain) payAgain.addEventListener("click", function () {
       var cart = load();
@@ -259,7 +259,7 @@
   window.PK = { add: add, updateBadges: updateBadges };
   document.addEventListener("DOMContentLoaded", function () {
     /* Order completed (thanks page): clear the cart and all checkout state.
-       Cancelling on PayPal leaves the cart intact, since PayPal opens in a
+       Cancelling the electronic payment leaves the cart intact, since it opens in a
        new tab and the cart page stays open. */
     if (/thanks\.html$/.test(location.pathname)) { save([]); try { localStorage.removeItem("pk-order-form"); localStorage.removeItem("pk-pay-path"); localStorage.removeItem("pk-form-open"); localStorage.removeItem("pk-pay-started"); } catch (e) {} }
     updateBadges(); renderCart(); setupCheckout();
